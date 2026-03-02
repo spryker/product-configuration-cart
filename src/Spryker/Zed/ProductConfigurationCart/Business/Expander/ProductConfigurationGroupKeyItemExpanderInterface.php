@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\CartChangeTransfer;
 
 interface ProductConfigurationGroupKeyItemExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandProductConfigurationItemsWithGroupKey(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer;
 }

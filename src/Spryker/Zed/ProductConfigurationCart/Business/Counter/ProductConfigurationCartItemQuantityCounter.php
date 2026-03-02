@@ -24,9 +24,6 @@ class ProductConfigurationCartItemQuantityCounter implements ProductConfiguratio
      */
     protected $itemComparator;
 
-    /**
-     * @param \Spryker\Zed\ProductConfigurationCart\Business\Comparator\ItemComparatorInterface $itemComparator
-     */
     public function __construct(ItemComparatorInterface $itemComparator)
     {
         $this->itemComparator = $itemComparator;

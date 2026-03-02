@@ -39,11 +39,6 @@ class ProductConfigurationCartDependencyProvider extends AbstractDependencyProvi
      */
     public const CLIENT_QUOTE = 'CLIENT_QUOTE';
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     public function provideServiceLayerDependencies(Container $container): Container
     {
         $container = parent::provideServiceLayerDependencies($container);
@@ -56,11 +51,6 @@ class ProductConfigurationCartDependencyProvider extends AbstractDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConfigurationClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_CONFIGURATION, function (Container $container) {
@@ -72,11 +62,6 @@ class ProductConfigurationCartDependencyProvider extends AbstractDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addProductConfigurationStorageClient(Container $container): Container
     {
         $container->set(static::CLIENT_PRODUCT_CONFIGURATION_STORAGE, function (Container $container) {
@@ -88,11 +73,6 @@ class ProductConfigurationCartDependencyProvider extends AbstractDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addCartClient(Container $container): Container
     {
         $container->set(static::CLIENT_CART, function (Container $container) {
@@ -104,11 +84,6 @@ class ProductConfigurationCartDependencyProvider extends AbstractDependencyProvi
         return $container;
     }
 
-    /**
-     * @param \Spryker\Client\Kernel\Container $container
-     *
-     * @return \Spryker\Client\Kernel\Container
-     */
     protected function addQuoteClient(Container $container): Container
     {
         $container->set(static::CLIENT_QUOTE, function (Container $container) {

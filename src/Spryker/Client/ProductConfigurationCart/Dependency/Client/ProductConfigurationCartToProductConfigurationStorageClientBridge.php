@@ -25,11 +25,6 @@ class ProductConfigurationCartToProductConfigurationStorageClientBridge implemen
         $this->productConfigurationStorageClient = $productConfigurationStorageClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfigurationInstanceCriteriaTransfer $productConfigurationInstanceCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationInstanceCollectionTransfer
-     */
     public function getProductConfigurationInstanceCollection(
         ProductConfigurationInstanceCriteriaTransfer $productConfigurationInstanceCriteriaTransfer
     ): ProductConfigurationInstanceCollectionTransfer {

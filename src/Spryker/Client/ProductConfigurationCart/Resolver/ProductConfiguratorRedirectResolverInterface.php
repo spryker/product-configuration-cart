@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ProductConfiguratorRequestTransfer;
 
 interface ProductConfiguratorRedirectResolverInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorRedirectTransfer
-     */
     public function resolveProductConfiguratorAccessTokenRedirect(
         ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
     ): ProductConfiguratorRedirectTransfer;

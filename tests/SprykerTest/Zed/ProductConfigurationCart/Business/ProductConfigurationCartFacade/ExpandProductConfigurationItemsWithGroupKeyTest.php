@@ -46,9 +46,6 @@ class ExpandProductConfigurationItemsWithGroupKeyTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testWillExpandItemGroupKeyWithProductConfigurationHash(): void
     {
         // Arrange
@@ -86,9 +83,6 @@ class ExpandProductConfigurationItemsWithGroupKeyTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testWillNotExpandItemGroupKeyWithoutProductConfiguration(): void
     {
         // Arrange

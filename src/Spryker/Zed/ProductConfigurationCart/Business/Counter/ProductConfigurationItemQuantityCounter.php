@@ -31,20 +31,11 @@ class ProductConfigurationItemQuantityCounter implements ProductConfigurationIte
      */
     protected $itemComparator;
 
-    /**
-     * @param \Spryker\Zed\ProductConfigurationCart\Business\Comparator\ItemComparatorInterface $itemComparator
-     */
     public function __construct(ItemComparatorInterface $itemComparator)
     {
         $this->itemComparator = $itemComparator;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartItemQuantityTransfer
-     */
     public function countItemQuantity(
         CartChangeTransfer $cartChangeTransfer,
         ItemTransfer $itemTransfer
@@ -72,13 +63,6 @@ class ProductConfigurationItemQuantityCounter implements ProductConfigurationIte
         return (new CartItemQuantityTransfer())->setQuantity($currentItemQuantity);
     }
 
-    /**
-     * @param int $currentItemQuantity
-     * @param int|null $deltaQuantity
-     * @param string|null $operation
-     *
-     * @return int
-     */
     protected function changeItemQuantityAccordingToOperation(int $currentItemQuantity, ?int $deltaQuantity, ?string $operation): int
     {
         if ($operation === static::OPERATION_REMOVE) {

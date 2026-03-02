@@ -54,10 +54,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
      */
     protected $cartClient;
 
-    /**
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToQuoteClientInterface $quoteClient
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToCartClientInterface $cartClient
-     */
     public function __construct(
         ProductConfigurationCartToQuoteClientInterface $quoteClient,
         ProductConfigurationCartToCartClientInterface $cartClient
@@ -66,11 +62,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         $this->cartClient = $cartClient;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer
-     */
     public function replaceItemInQuote(
         ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
     ): ProductConfiguratorResponseProcessorResponseTransfer {
@@ -116,13 +107,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseTransfer $productConfiguratorResponseTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemToBeReplacedTransfer
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemReplaceTransfer
-     */
     protected function createItemReplaceTransfer(
         ProductConfiguratorResponseTransfer $productConfiguratorResponseTransfer,
         ItemTransfer $itemToBeReplacedTransfer,
@@ -141,12 +125,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
             ->setQuote($quoteTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseTransfer $productConfiguratorResponseTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ItemTransfer
-     */
     protected function replaceItemQuantity(
         ProductConfiguratorResponseTransfer $productConfiguratorResponseTransfer,
         ItemTransfer $itemTransfer
@@ -166,12 +144,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         return $itemTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
-     * @param \Generated\Shared\Transfer\ItemReplaceTransfer $itemReplaceTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer
-     */
     protected function handleQuantityChange(
         ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer,
         ItemReplaceTransfer $itemReplaceTransfer
@@ -187,12 +159,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         return $productConfiguratorResponseProcessorResponseTransfer->addMessage($messageTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteResponseTransfer $quoteResponseTransfer
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer
-     */
     protected function addQuoteErrors(
         QuoteResponseTransfer $quoteResponseTransfer,
         ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
@@ -206,11 +172,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
         return $productConfiguratorResponseProcessorResponseTransfer->setIsSuccessful(false);
     }
 
-    /**
-     * @param string $sku
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createConfigurationItemNotFoundMessage(string $sku): MessageTransfer
     {
         return (new MessageTransfer())
@@ -219,11 +180,6 @@ class QuoteItemReplacer implements QuoteItemReplacerInterface
             ->setParameters([static::GLOSSARY_MESSAGE_PARAMETER_SKU => $sku]);
     }
 
-    /**
-     * @param int $availability
-     *
-     * @return \Generated\Shared\Transfer\MessageTransfer
-     */
     protected function createConfigurationItemAvailabilityMessage(int $availability): MessageTransfer
     {
         return (new MessageTransfer())

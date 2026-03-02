@@ -33,9 +33,6 @@ class ItemComparatorTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testIsSame(): void
     {
         // Arrange
@@ -65,9 +62,6 @@ class ItemComparatorTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testIsNotSame(): void
     {
         // Arrange
@@ -111,9 +105,6 @@ class ItemComparatorTest extends Unit
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Dependency\Service\ProductConfigurationCartToProductConfigurationServiceInterface
-     */
     protected function createProductConfigurationServiceMock(): ProductConfigurationCartToProductConfigurationServiceInterface
     {
         return $this->getMockBuilder(ProductConfigurationCartToProductConfigurationServiceInterface::class)->getMock();

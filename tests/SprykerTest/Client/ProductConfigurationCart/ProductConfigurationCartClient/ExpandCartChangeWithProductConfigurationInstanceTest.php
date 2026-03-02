@@ -31,9 +31,6 @@ class ExpandCartChangeWithProductConfigurationInstanceTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandCartChangeWithProductConfigurationInstanceExpandsItemWithProductConfigurationInstance(): void
     {
         // Arrange
@@ -67,9 +64,6 @@ class ExpandCartChangeWithProductConfigurationInstanceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCartChangeWithProductConfigurationInstanceWithoutItems(): void
     {
         // Arrange
@@ -87,9 +81,6 @@ class ExpandCartChangeWithProductConfigurationInstanceTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExpandCartChangeWithProductConfigurationInstanceExpandsItemWithEmptyInstance(): void
     {
         // Arrange

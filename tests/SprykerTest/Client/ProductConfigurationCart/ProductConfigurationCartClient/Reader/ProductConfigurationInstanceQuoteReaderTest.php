@@ -34,9 +34,6 @@ class ProductConfigurationInstanceQuoteReaderTest extends Unit
      */
     protected ProductConfigurationCartClientTester $tester;
 
-    /**
-     * @return void
-     */
     public function testFindProductConfigurationInstanceInQuoteEnsureQuantityPropertyToBeUpdated(): void
     {
         // Arrange
@@ -55,9 +52,6 @@ class ProductConfigurationInstanceQuoteReaderTest extends Unit
         $this->assertSame(10, $productConfigurationInstanceTransfer->getQuantity());
     }
 
-    /**
-     * @return void
-     */
     public function testFindProductConfigurationInstanceInQuoteEnsureQuantityPropertyIsNull(): void
     {
         // Arrange

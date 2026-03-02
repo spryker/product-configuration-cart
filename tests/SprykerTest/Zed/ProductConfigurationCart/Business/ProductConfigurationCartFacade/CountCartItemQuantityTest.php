@@ -30,9 +30,6 @@ class CountCartItemQuantityTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testCountCartItemQuantityWithoutItemsInCartWillReturnDefaultQuantity(): void
     {
         //Arrange
@@ -49,9 +46,6 @@ class CountCartItemQuantityTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testCountCartItemQuantityWillCountQuantityCorrectly(): void
     {
         //Arrange

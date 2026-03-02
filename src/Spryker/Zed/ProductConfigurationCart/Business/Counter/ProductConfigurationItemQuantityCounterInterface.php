@@ -13,12 +13,6 @@ use Generated\Shared\Transfer\ItemTransfer;
 
 interface ProductConfigurationItemQuantityCounterInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartItemQuantityTransfer
-     */
     public function countItemQuantity(
         CartChangeTransfer $cartChangeTransfer,
         ItemTransfer $itemTransfer

@@ -31,17 +31,11 @@ use Spryker\Zed\ProductConfigurationCart\ProductConfigurationCartDependencyProvi
  */
 class ProductConfigurationCartBusinessFactory extends AbstractBusinessFactory
 {
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Expander\ProductConfigurationGroupKeyItemExpanderInterface
-     */
     public function createProductConfigurationGroupKeyItemExpander(): ProductConfigurationGroupKeyItemExpanderInterface
     {
         return new ProductConfigurationGroupKeyItemExpander($this->getProductConfigurationService());
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Checker\ProductConfigurationCheckerInterface
-     */
     public function createProductConfigurationChecker(): ProductConfigurationCheckerInterface
     {
         return new ProductConfigurationChecker(
@@ -49,17 +43,11 @@ class ProductConfigurationCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Expander\ProductConfigurationPriceProductExpanderInterface
-     */
     public function createProductConfigurationPriceProductExpander(): ProductConfigurationPriceProductExpanderInterface
     {
         return new ProductConfigurationPriceProductExpander();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Counter\ProductConfigurationCartItemQuantityCounterInterface
-     */
     public function createProductConfigurationCartItemQuantityCounter(): ProductConfigurationCartItemQuantityCounterInterface
     {
         return new ProductConfigurationCartItemQuantityCounter(
@@ -67,9 +55,6 @@ class ProductConfigurationCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Counter\ProductConfigurationItemQuantityCounterInterface
-     */
     public function createProductConfigurationItemQuantityCounter(): ProductConfigurationItemQuantityCounterInterface
     {
         return new ProductConfigurationItemQuantityCounter(
@@ -77,9 +62,6 @@ class ProductConfigurationCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Comparator\ItemComparatorInterface
-     */
     public function createItemComparator(): ItemComparatorInterface
     {
         return new ItemComparator(
@@ -88,25 +70,16 @@ class ProductConfigurationCartBusinessFactory extends AbstractBusinessFactory
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Business\Validator\QuoteRequestProductConfigurationValidatorInterface
-     */
     public function createQuoteRequestProductConfigurationValidator(): QuoteRequestProductConfigurationValidatorInterface
     {
         return new QuoteRequestProductConfigurationValidator();
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Dependency\Service\ProductConfigurationCartToProductConfigurationServiceInterface
-     */
     public function getProductConfigurationService(): ProductConfigurationCartToProductConfigurationServiceInterface
     {
         return $this->getProvidedDependency(ProductConfigurationCartDependencyProvider::SERVICE_PRODUCT_CONFIGURATION);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductConfigurationCart\Dependency\Facade\ProductConfigurationCartToProductConfigurationFacadeInterface
-     */
     public function getProductConfigurationFacade(): ProductConfigurationCartToProductConfigurationFacadeInterface
     {
         return $this->getProvidedDependency(ProductConfigurationCartDependencyProvider::FACADE_PRODUCT_CONFIGURATION);

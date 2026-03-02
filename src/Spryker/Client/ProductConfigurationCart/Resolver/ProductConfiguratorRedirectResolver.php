@@ -42,11 +42,6 @@ class ProductConfiguratorRedirectResolver implements ProductConfiguratorRedirect
      */
     protected $productConfigurationInstanceQuoteReader;
 
-    /**
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToProductConfigurationClientInterface $productConfigurationClient
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToQuoteClientInterface $quoteClient
-     * @param \Spryker\Client\ProductConfigurationCart\Reader\ProductConfigurationInstanceQuoteReaderInterface $productConfigurationInstanceQuoteReader
-     */
     public function __construct(
         ProductConfigurationCartToProductConfigurationClientInterface $productConfigurationClient,
         ProductConfigurationCartToQuoteClientInterface $quoteClient,
@@ -57,11 +52,6 @@ class ProductConfiguratorRedirectResolver implements ProductConfiguratorRedirect
         $this->productConfigurationInstanceQuoteReader = $productConfigurationInstanceQuoteReader;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorRedirectTransfer
-     */
     public function resolveProductConfiguratorAccessTokenRedirect(
         ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
     ): ProductConfiguratorRedirectTransfer {
@@ -90,12 +80,6 @@ class ProductConfiguratorRedirectResolver implements ProductConfiguratorRedirect
         return $this->productConfigurationClient->sendProductConfiguratorAccessTokenRequest($productConfiguratorRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfigurationInstanceTransfer $configurationInstanceTransfer
-     * @param \Generated\Shared\Transfer\ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorRequestTransfer
-     */
     protected function mapProductConfigurationInstanceTransferToProductConfiguratorRequestTransfer(
         ProductConfigurationInstanceTransfer $configurationInstanceTransfer,
         ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
@@ -108,13 +92,6 @@ class ProductConfiguratorRedirectResolver implements ProductConfiguratorRedirect
         return $productConfiguratorRequestTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorRedirectTransfer $productConfiguratorRedirectTransfer
-     * @param string $message
-     * @param array $parameters
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorRedirectTransfer
-     */
     protected function addErrorToProductConfiguratorRedirect(
         ProductConfiguratorRedirectTransfer $productConfiguratorRedirectTransfer,
         string $message,

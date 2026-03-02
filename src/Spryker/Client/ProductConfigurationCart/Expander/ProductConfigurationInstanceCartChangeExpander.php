@@ -21,9 +21,6 @@ class ProductConfigurationInstanceCartChangeExpander implements ProductConfigura
      */
     protected ProductConfigurationCartToProductConfigurationStorageClientInterface $productConfigurationStorageClient;
 
-    /**
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToProductConfigurationStorageClientInterface $productConfigurationStorageClient
-     */
     public function __construct(ProductConfigurationCartToProductConfigurationStorageClientInterface $productConfigurationStorageClient)
     {
         $this->productConfigurationStorageClient = $productConfigurationStorageClient;
@@ -51,11 +48,6 @@ class ProductConfigurationInstanceCartChangeExpander implements ProductConfigura
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationInstanceCollectionTransfer
-     */
     protected function getProductConfigurationInstanceCollection(
         CartChangeTransfer $cartChangeTransfer
     ): ProductConfigurationInstanceCollectionTransfer {
@@ -80,12 +72,6 @@ class ProductConfigurationInstanceCartChangeExpander implements ProductConfigura
             ->getProductConfigurationInstanceCollection($productConfigurationInstanceCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     * @param \Generated\Shared\Transfer\ProductConfigurationInstanceCollectionTransfer $productConfigurationInstanceCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     protected function expandItemsWithProductConfigurationInstance(
         CartChangeTransfer $cartChangeTransfer,
         ProductConfigurationInstanceCollectionTransfer $productConfigurationInstanceCollectionTransfer

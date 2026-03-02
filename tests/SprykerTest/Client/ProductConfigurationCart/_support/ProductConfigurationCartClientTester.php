@@ -68,25 +68,16 @@ class ProductConfigurationCartClientTester extends Actor
      */
     protected const REDIS_PASSWORD = 'STORAGE_REDIS:STORAGE_REDIS_PASSWORD';
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\ProductConfigurationCartClientInterface
-     */
     public function getClient(): ProductConfigurationCartClientInterface
     {
         return $this->getLocator()->productConfigurationCart()->client();
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationStorage\ProductConfigurationStorageClientInterface
-     */
     public function getProductConfigurationStorageClient(): ProductConfigurationStorageClientInterface
     {
         return $this->getLocator()->productConfigurationStorage()->client();
     }
 
-    /**
-     * @return void
-     */
     public function setupStorageRedisConfig(): void
     {
         $this->setConfig(StorageConstants::STORAGE_REDIS_PROTOCOL, Config::get(static::REDIS_SCHEME, false));

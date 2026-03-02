@@ -27,20 +27,11 @@ class ProductConfigurationChecker implements ProductConfigurationCheckerInterfac
      */
     protected $productConfigurationFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductConfigurationCart\Dependency\Facade\ProductConfigurationCartToProductConfigurationFacadeInterface $productConfigurationFacade
-     */
     public function __construct(ProductConfigurationCartToProductConfigurationFacadeInterface $productConfigurationFacade)
     {
         $this->productConfigurationFacade = $productConfigurationFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     *
-     * @return bool
-     */
     public function isQuoteProductConfigurationValid(QuoteTransfer $quoteTransfer, CheckoutResponseTransfer $checkoutResponseTransfer): bool
     {
         $indexedProductConfigurations = $this->getProductConfigurationsIndexedBySku($quoteTransfer);
@@ -117,12 +108,6 @@ class ProductConfigurationChecker implements ProductConfigurationCheckerInterfac
         return array_unique($skus);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CheckoutResponseTransfer $checkoutResponseTransfer
-     * @param string $message
-     *
-     * @return \Generated\Shared\Transfer\CheckoutResponseTransfer
-     */
     protected function addCheckoutError(CheckoutResponseTransfer $checkoutResponseTransfer, string $message): CheckoutResponseTransfer
     {
         $checkoutResponseTransfer

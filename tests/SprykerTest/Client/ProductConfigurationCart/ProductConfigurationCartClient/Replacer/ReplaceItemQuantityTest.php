@@ -80,9 +80,6 @@ class ReplaceItemQuantityTest extends Unit
         $this->assertSame($newItemQuantity, $this->newItemQuantity, 'New item quantity is wrong.');
     }
 
-    /**
-     * @return void
-     */
     public function testReplaceItemQuantityWithoutProductConfigurationInstance(): void
     {
         // Arrange
@@ -106,9 +103,6 @@ class ReplaceItemQuantityTest extends Unit
         $this->assertSame(10, $this->newItemQuantity, 'New item quantity is wrong.');
     }
 
-    /**
-     * @return array
-     */
     public function replaceItemQuantityDataProvider(): array
     {
         return [

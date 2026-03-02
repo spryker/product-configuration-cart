@@ -36,11 +36,6 @@ interface ProductConfigurationCartToProductConfigurationClientInterface
         ProductConfiguratorResponseTransfer $productConfiguratorResponseTransfer
     ): ProductConfiguratorResponseTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorRedirectTransfer
-     */
     public function sendProductConfiguratorAccessTokenRequest(
         ProductConfiguratorRequestTransfer $productConfiguratorRequestTransfer
     ): ProductConfiguratorRedirectTransfer;

@@ -19,11 +19,6 @@ class QuoteRequestProductConfigurationValidator implements QuoteRequestProductCo
      */
     protected const GLOSSARY_KEY_PRODUCT_CONFIGURATION_IN_QUOTE_REQUEST_IS_INCOMPLETE = 'product_configuration.quote_request.validation.error.incomplete';
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     public function validateQuoteRequestProductConfiguration(
         QuoteRequestTransfer $quoteRequestTransfer
     ): QuoteRequestResponseTransfer {
@@ -34,21 +29,11 @@ class QuoteRequestProductConfigurationValidator implements QuoteRequestProductCo
         return $this->isQuoteRequestValid($quoteRequestTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return bool
-     */
     protected function isQuoteRequestReadyForValidation(QuoteRequestTransfer $quoteRequestTransfer): bool
     {
         return $quoteRequestTransfer->getLatestVersion() && $quoteRequestTransfer->getLatestVersionOrFail()->getQuote();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     protected function isQuoteRequestValid(QuoteRequestTransfer $quoteRequestTransfer): QuoteRequestResponseTransfer
     {
         foreach ($quoteRequestTransfer->getLatestVersionOrFail()->getQuoteOrFail()->getItems() as $itemTransfer) {
@@ -64,37 +49,21 @@ class QuoteRequestProductConfigurationValidator implements QuoteRequestProductCo
         return $this->createSuccessfulResponse();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isProductConfigurationItem(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getProductConfigurationInstance() !== null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isProductConfigurationComplete(ItemTransfer $itemTransfer): bool
     {
         return (bool)$itemTransfer->getProductConfigurationInstanceOrFail()->getIsComplete();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     protected function createSuccessfulResponse(): QuoteRequestResponseTransfer
     {
         return (new QuoteRequestResponseTransfer())->setIsSuccessful(true);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     protected function createFailedResponse(): QuoteRequestResponseTransfer
     {
         return (new QuoteRequestResponseTransfer())

@@ -41,9 +41,6 @@ class ProductConfigurationCartBusinessTester extends Actor
      */
     protected const PRODUCT_CONFIGURATION_TEST_KEY = 'product_configuration_test_key';
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestTransfer
-     */
     public function haveQuoteRequestInDraftStatusWithIncompleteConfiguredProduct(): QuoteRequestTransfer
     {
         $quoteRequestTransfer = $this->createQuoteRequestTransfer();
@@ -55,9 +52,6 @@ class ProductConfigurationCartBusinessTester extends Actor
         return $quoteRequestTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestTransfer
-     */
     public function haveQuoteRequestInDraftStatusWithCompleteConfiguredProduct(): QuoteRequestTransfer
     {
         $quoteRequestTransfer = $this->createQuoteRequestTransfer();
@@ -69,11 +63,6 @@ class ProductConfigurationCartBusinessTester extends Actor
         return $quoteRequestTransfer;
     }
 
-    /**
-     * @param bool $isConfigurationComplete
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationInstanceTransfer
-     */
     public function createProductConfigurationInstance(bool $isConfigurationComplete = true): ProductConfigurationInstanceTransfer
     {
         return (new ProductConfigurationInstanceTransfer())
@@ -81,9 +70,6 @@ class ProductConfigurationCartBusinessTester extends Actor
             ->setIsComplete($isConfigurationComplete);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteRequestTransfer
-     */
     public function createQuoteRequestTransfer(): QuoteRequestTransfer
     {
         $quoteTransfer = $this->createQuoteTransfer();
@@ -92,11 +78,6 @@ class ProductConfigurationCartBusinessTester extends Actor
         return (new QuoteRequestTransfer())->setLatestVersion($quoteRequestVersionTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteRequestVersionTransfer
-     */
     public function createQuoteRequestVersionTransfer(QuoteTransfer $quoteTransfer): QuoteRequestVersionTransfer
     {
         return $this->haveQuoteRequestVersion([
@@ -104,9 +85,6 @@ class ProductConfigurationCartBusinessTester extends Actor
         ]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\QuoteTransfer
-     */
     public function createQuoteTransfer(): QuoteTransfer
     {
         return (new QuoteBuilder())

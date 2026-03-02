@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransf
 
 interface QuoteItemReplacerInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer
-     */
     public function replaceItemInQuote(
         ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
     ): ProductConfiguratorResponseProcessorResponseTransfer;

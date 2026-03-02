@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\ProductConfigurationCriteriaTransfer;
 
 interface ProductConfigurationCartToProductConfigurationFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfigurationCriteriaTransfer $productConfigurationCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationCollectionTransfer
-     */
     public function getProductConfigurationCollection(
         ProductConfigurationCriteriaTransfer $productConfigurationCriteriaTransfer
     ): ProductConfigurationCollectionTransfer;

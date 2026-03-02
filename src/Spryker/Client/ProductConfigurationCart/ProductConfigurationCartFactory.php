@@ -29,9 +29,6 @@ use Spryker\Client\ProductConfigurationCart\Validator\ProductConfiguratorRespons
 
 class ProductConfigurationCartFactory extends AbstractFactory
 {
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Expander\ProductConfigurationInstanceCartChangeExpanderInterface
-     */
     public function createProductConfigurationInstanceCartChangeExpander(): ProductConfigurationInstanceCartChangeExpanderInterface
     {
         return new ProductConfigurationInstanceCartChangeExpander(
@@ -39,25 +36,16 @@ class ProductConfigurationCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Reader\ProductConfigurationInstanceQuoteReaderInterface
-     */
     public function createProductConfigurationInstanceQuoteReader(): ProductConfigurationInstanceQuoteReaderInterface
     {
         return new ProductConfigurationInstanceQuoteReader($this->getCartClient());
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Checker\QuoteProductConfigurationCheckerInterface
-     */
     public function createQuoteProductConfigurationChecker(): QuoteProductConfigurationCheckerInterface
     {
         return new QuoteProductConfigurationChecker();
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Replacer\QuoteItemReplacerInterface
-     */
     public function createQuoteItemReplacer(): QuoteItemReplacerInterface
     {
         return new QuoteItemReplacer(
@@ -66,9 +54,6 @@ class ProductConfigurationCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Processor\ProductConfiguratorResponseProcessorInterface
-     */
     public function createProductConfiguratorResponseProcessor(): ProductConfiguratorResponseProcessorInterface
     {
         return new ProductConfiguratorResponseProcessor(
@@ -78,9 +63,6 @@ class ProductConfigurationCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Validator\ProductConfiguratorResponseValidatorInterface
-     */
     public function createProductConfiguratorResponseValidator(): ProductConfiguratorResponseValidatorInterface
     {
         return new ProductConfiguratorResponseValidator(
@@ -88,9 +70,6 @@ class ProductConfigurationCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Resolver\ProductConfiguratorRedirectResolverInterface
-     */
     public function createProductConfiguratorRedirectResolver(): ProductConfiguratorRedirectResolverInterface
     {
         return new ProductConfiguratorRedirectResolver(
@@ -100,33 +79,21 @@ class ProductConfigurationCartFactory extends AbstractFactory
         );
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToProductConfigurationClientInterface
-     */
     public function getProductConfigurationClient(): ProductConfigurationCartToProductConfigurationClientInterface
     {
         return $this->getProvidedDependency(ProductConfigurationCartDependencyProvider::CLIENT_PRODUCT_CONFIGURATION);
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToProductConfigurationStorageClientInterface
-     */
     public function getProductConfigurationStorageClient(): ProductConfigurationCartToProductConfigurationStorageClientInterface
     {
         return $this->getProvidedDependency(ProductConfigurationCartDependencyProvider::CLIENT_PRODUCT_CONFIGURATION_STORAGE);
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToCartClientInterface
-     */
     public function getCartClient(): ProductConfigurationCartToCartClientInterface
     {
         return $this->getProvidedDependency(ProductConfigurationCartDependencyProvider::CLIENT_CART);
     }
 
-    /**
-     * @return \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToQuoteClientInterface
-     */
     public function getQuoteClient(): ProductConfigurationCartToQuoteClientInterface
     {
         return $this->getProvidedDependency(ProductConfigurationCartDependencyProvider::CLIENT_QUOTE);

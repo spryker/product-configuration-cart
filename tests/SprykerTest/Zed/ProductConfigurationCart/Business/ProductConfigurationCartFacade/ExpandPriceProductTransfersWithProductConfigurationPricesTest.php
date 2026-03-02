@@ -33,9 +33,6 @@ class ExpandPriceProductTransfersWithProductConfigurationPricesTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testExpandPriceProductTransfersWithProductConfigurationPricesWillExpandPrices(): void
     {
         //Arrange
@@ -64,9 +61,6 @@ class ExpandPriceProductTransfersWithProductConfigurationPricesTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testExpandPriceProductTransfersWithProductConfigurationPricesWillDoNothingWithoutProductConfigurationExistence(): void
     {
         //Arrange

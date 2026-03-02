@@ -12,11 +12,6 @@ use Generated\Shared\Transfer\QuoteRequestTransfer;
 
 interface QuoteRequestProductConfigurationValidatorInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\QuoteRequestTransfer $quoteRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\QuoteRequestResponseTransfer
-     */
     public function validateQuoteRequestProductConfiguration(
         QuoteRequestTransfer $quoteRequestTransfer
     ): QuoteRequestResponseTransfer;

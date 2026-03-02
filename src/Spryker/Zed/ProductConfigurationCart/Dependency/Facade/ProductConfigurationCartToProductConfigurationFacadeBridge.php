@@ -25,11 +25,6 @@ class ProductConfigurationCartToProductConfigurationFacadeBridge implements Prod
         $this->productConfigurationFacade = $productConfigurationFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfigurationCriteriaTransfer $productConfigurationCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationCollectionTransfer
-     */
     public function getProductConfigurationCollection(
         ProductConfigurationCriteriaTransfer $productConfigurationCriteriaTransfer
     ): ProductConfigurationCollectionTransfer {

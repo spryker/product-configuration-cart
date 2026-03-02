@@ -50,9 +50,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
      */
     protected $productConcreteTransfer;
 
-    /**
-     * @return void
-     */
     protected function _setUp(): void
     {
         parent::_setUp();
@@ -63,9 +60,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testWithValidProductConfiguration(): void
     {
         // Arrange
@@ -90,9 +84,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testWithNotValidProductConfiguration(): void
     {
         // Arrange
@@ -122,9 +113,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteProductConfigurationValidWithoutProductConfiguration(): void
     {
         // Arrange
@@ -153,9 +141,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testWithoutProductConfiguration(): void
     {
         // Arrange

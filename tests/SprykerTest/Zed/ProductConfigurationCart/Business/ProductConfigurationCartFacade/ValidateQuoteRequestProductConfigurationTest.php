@@ -34,9 +34,6 @@ class ValidateQuoteRequestProductConfigurationTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testValidateQuoteRequestProductConfigurationWillReturnSuccessInCaseOfAllProductsCompleted(): void
     {
         //Arrange
@@ -51,9 +48,6 @@ class ValidateQuoteRequestProductConfigurationTest extends Unit
         $this->assertEmpty($quoteRequestResponseTransfer->getMessages());
     }
 
-    /**
-     * @return void
-     */
     public function testValidateQuoteRequestProductConfigurationWillReturnFailInCaseOfAnyProductIsInCompleted(): void
     {
         //Arrange

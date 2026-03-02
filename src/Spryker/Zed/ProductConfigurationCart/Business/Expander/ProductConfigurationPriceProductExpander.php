@@ -41,12 +41,6 @@ class ProductConfigurationPriceProductExpander implements ProductConfigurationPr
         return array_merge($priceProductTransfers, ...$productConfigurationPriceProductTransfers);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfigurationInstanceTransfer $productConfigurationInstance
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationInstanceTransfer
-     */
     protected function fillProductConfigurationPricesWithSku(
         ProductConfigurationInstanceTransfer $productConfigurationInstance,
         ItemTransfer $itemTransfer
@@ -58,11 +52,6 @@ class ProductConfigurationPriceProductExpander implements ProductConfigurationPr
         return $productConfigurationInstance;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function hasProductConfigurationPrices(ItemTransfer $itemTransfer): bool
     {
         $productConfigurationInstance = $itemTransfer->getProductConfigurationInstance();

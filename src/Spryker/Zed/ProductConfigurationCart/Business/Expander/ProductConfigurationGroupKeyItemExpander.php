@@ -18,19 +18,11 @@ class ProductConfigurationGroupKeyItemExpander implements ProductConfigurationGr
      */
     protected $productConfigurationService;
 
-    /**
-     * @param \Spryker\Zed\ProductConfigurationCart\Dependency\Service\ProductConfigurationCartToProductConfigurationServiceInterface $productConfigurationService
-     */
     public function __construct(ProductConfigurationCartToProductConfigurationServiceInterface $productConfigurationService)
     {
         $this->productConfigurationService = $productConfigurationService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CartChangeTransfer $cartChangeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CartChangeTransfer
-     */
     public function expandProductConfigurationItemsWithGroupKey(CartChangeTransfer $cartChangeTransfer): CartChangeTransfer
     {
         foreach ($cartChangeTransfer->getItems() as $itemTransfer) {
@@ -46,21 +38,11 @@ class ProductConfigurationGroupKeyItemExpander implements ProductConfigurationGr
         return $cartChangeTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return bool
-     */
     protected function isProductConfigurationItem(ItemTransfer $itemTransfer): bool
     {
         return $itemTransfer->getProductConfigurationInstance() !== null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ItemTransfer $itemTransfer
-     *
-     * @return string
-     */
     protected function buildProductConfigurationGroupKey(ItemTransfer $itemTransfer): string
     {
         $productConfigurationInstanceHashKey = $this->productConfigurationService->getProductConfigurationInstanceHash(

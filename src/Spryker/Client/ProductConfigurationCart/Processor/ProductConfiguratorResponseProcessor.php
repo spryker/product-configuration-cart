@@ -30,11 +30,6 @@ class ProductConfiguratorResponseProcessor implements ProductConfiguratorRespons
      */
     protected $quoteItemReplacer;
 
-    /**
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToProductConfigurationClientInterface $productConfigurationClient
-     * @param \Spryker\Client\ProductConfigurationCart\Validator\ProductConfiguratorResponseValidatorInterface $productConfiguratorResponseValidator
-     * @param \Spryker\Client\ProductConfigurationCart\Replacer\QuoteItemReplacerInterface $quoteItemReplacer
-     */
     public function __construct(
         ProductConfigurationCartToProductConfigurationClientInterface $productConfigurationClient,
         ProductConfiguratorResponseValidatorInterface $productConfiguratorResponseValidator,

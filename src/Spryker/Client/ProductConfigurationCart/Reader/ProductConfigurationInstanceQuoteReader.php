@@ -18,21 +18,11 @@ class ProductConfigurationInstanceQuoteReader implements ProductConfigurationIns
      */
     protected $cartClient;
 
-    /**
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToCartClientInterface $cartClient
-     */
     public function __construct(ProductConfigurationCartToCartClientInterface $cartClient)
     {
         $this->cartClient = $cartClient;
     }
 
-    /**
-     * @param string $groupKey
-     * @param string $sku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationInstanceTransfer|null
-     */
     public function findProductConfigurationInstanceInQuote(
         string $groupKey,
         string $sku,

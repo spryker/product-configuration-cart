@@ -27,9 +27,6 @@ class ProductConfiguratorResponseValidator implements ProductConfiguratorRespons
      */
     protected $productConfigurationClient;
 
-    /**
-     * @param \Spryker\Client\ProductConfigurationCart\Dependency\Client\ProductConfigurationCartToProductConfigurationClientInterface $productConfigurationClient
-     */
     public function __construct(
         ProductConfigurationCartToProductConfigurationClientInterface $productConfigurationClient
     ) {
@@ -58,11 +55,6 @@ class ProductConfiguratorResponseValidator implements ProductConfiguratorRespons
         return $this->validateMandatoryFields($productConfiguratorResponseProcessorResponseTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer
-     */
     protected function validateMandatoryFields(
         ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
     ): ProductConfiguratorResponseProcessorResponseTransfer {
@@ -88,12 +80,6 @@ class ProductConfiguratorResponseValidator implements ProductConfiguratorRespons
         return $productConfiguratorResponseProcessorResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer
-     * @param string $errorMessage
-     *
-     * @return \Generated\Shared\Transfer\ProductConfiguratorResponseProcessorResponseTransfer
-     */
     protected function addErrorToResponse(
         ProductConfiguratorResponseProcessorResponseTransfer $productConfiguratorResponseProcessorResponseTransfer,
         string $errorMessage

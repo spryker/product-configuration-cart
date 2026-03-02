@@ -30,9 +30,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testIsQuoteProductConfigurationValidWithSuccessFlow(): void
     {
         // Arrange
@@ -54,9 +51,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteProductConfigurationValidFalseWithNotCompletedProductConfiguration(): void
     {
         // Arrange
@@ -79,9 +73,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteProductConfigurationValidEmptyQuoteDoNothing(): void
     {
         // Act
@@ -96,9 +87,6 @@ class IsQuoteProductConfigurationValidTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testIsQuoteProductConfigurationValidItemsWithoutConfiguration(): void
     {
         $itemTransfer = (new ItemBuilder())->build();

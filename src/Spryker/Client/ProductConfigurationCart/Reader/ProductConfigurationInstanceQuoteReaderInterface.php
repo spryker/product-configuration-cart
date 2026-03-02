@@ -12,13 +12,6 @@ use Generated\Shared\Transfer\QuoteTransfer;
 
 interface ProductConfigurationInstanceQuoteReaderInterface
 {
-    /**
-     * @param string $groupKey
-     * @param string $sku
-     * @param \Generated\Shared\Transfer\QuoteTransfer $quoteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConfigurationInstanceTransfer|null
-     */
     public function findProductConfigurationInstanceInQuote(
         string $groupKey,
         string $sku,

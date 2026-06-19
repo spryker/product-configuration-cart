@@ -14,6 +14,7 @@ use Generated\Shared\Transfer\ProductConfigurationConditionsTransfer;
 use Generated\Shared\Transfer\ProductConfigurationCriteriaTransfer;
 use Generated\Shared\Transfer\QuoteTransfer;
 use Spryker\Zed\ProductConfigurationCart\Dependency\Facade\ProductConfigurationCartToProductConfigurationFacadeInterface;
+use Spryker\Zed\ProductConfigurationCart\ProductConfigurationCartConfig;
 
 class ProductConfigurationChecker implements ProductConfigurationCheckerInterface
 {
@@ -22,13 +23,12 @@ class ProductConfigurationChecker implements ProductConfigurationCheckerInterfac
      */
     protected const GLOSSARY_KEY_PRODUCT_CONFIGURATION_IS_NOT_COMPLETE = 'product_configuration.checkout.validation.error.is_not_complete';
 
-    /**
-     * @var \Spryker\Zed\ProductConfigurationCart\Dependency\Facade\ProductConfigurationCartToProductConfigurationFacadeInterface
-     */
-    protected $productConfigurationFacade;
+    protected ProductConfigurationCartToProductConfigurationFacadeInterface $productConfigurationFacade;
 
-    public function __construct(ProductConfigurationCartToProductConfigurationFacadeInterface $productConfigurationFacade)
-    {
+    public function __construct(
+        ProductConfigurationCartToProductConfigurationFacadeInterface $productConfigurationFacade,
+        protected ProductConfigurationCartConfig $productConfigurationCartConfig,
+    ) {
         $this->productConfigurationFacade = $productConfigurationFacade;
     }
 
@@ -46,13 +46,13 @@ class ProductConfigurationChecker implements ProductConfigurationCheckerInterfac
             $productConfigurationTransfer = $indexedProductConfigurations[$itemTransfer->getSkuOrFail()] ?? null;
 
             if (!$productConfigurationTransfer) {
-                $this->addCheckoutError($checkoutResponseTransfer, static::GLOSSARY_KEY_PRODUCT_CONFIGURATION_IS_NOT_COMPLETE);
+                $this->addCheckoutError($checkoutResponseTransfer, static::GLOSSARY_KEY_PRODUCT_CONFIGURATION_IS_NOT_COMPLETE, $itemTransfer->getGroupKey());
 
                 return false;
             }
 
             if (!$productConfigurationInstanceTransfer->getIsComplete()) {
-                $this->addCheckoutError($checkoutResponseTransfer, static::GLOSSARY_KEY_PRODUCT_CONFIGURATION_IS_NOT_COMPLETE);
+                $this->addCheckoutError($checkoutResponseTransfer, static::GLOSSARY_KEY_PRODUCT_CONFIGURATION_IS_NOT_COMPLETE, $itemTransfer->getGroupKey());
 
                 return false;
             }
@@ -108,10 +108,15 @@ class ProductConfigurationChecker implements ProductConfigurationCheckerInterfac
         return array_unique($skus);
     }
 
-    protected function addCheckoutError(CheckoutResponseTransfer $checkoutResponseTransfer, string $message): CheckoutResponseTransfer
+    protected function addCheckoutError(CheckoutResponseTransfer $checkoutResponseTransfer, string $message, ?string $groupKey = null): CheckoutResponseTransfer
     {
+        $checkoutErrorTransfer = (new CheckoutErrorTransfer())
+            ->setMessage($message)
+            ->setErrorType($this->productConfigurationCartConfig->getCheckoutErrorType())
+            ->setGroupKey($groupKey);
+
         $checkoutResponseTransfer
-            ->addError((new CheckoutErrorTransfer())->setMessage($message))
+            ->addError($checkoutErrorTransfer)
             ->setIsSuccess(false);
 
         return $checkoutResponseTransfer;

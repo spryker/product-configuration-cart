@@ -40,6 +40,7 @@ class ProductConfigurationCartBusinessFactory extends AbstractBusinessFactory
     {
         return new ProductConfigurationChecker(
             $this->getProductConfigurationFacade(),
+            $this->getConfig(),
         );
     }
 

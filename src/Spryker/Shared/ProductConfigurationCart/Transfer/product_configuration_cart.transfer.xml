@@ -35,6 +35,7 @@
 
     <transfer name="CheckoutError">
         <property name="message" type="string"/>
+        <property name="errorType" type="string"/>
     </transfer>
 
     <transfer name="ProductConfiguratorResponseProcessorResponse">
